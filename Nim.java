@@ -1,1 +1,3 @@
-//haye
+public class Nim {
+    
+}
