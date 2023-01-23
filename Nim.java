@@ -7,6 +7,8 @@ public class Nim {
     private boolean playAgain;
     private boolean playing;
     private Player activePlayer;
+    private int playerInput;
+    private boolean invalid;
 
     public Nim ()
     {
@@ -34,9 +36,26 @@ public class Nim {
         {
             //prompt player for move
             System.out.println(activePlayer.getName() + ", the pile has " + board.getPieces() + " pieces. How many will you remove?");
-            
-            board.removePieces(input.nextInt());
-            
+            //Validate input
+            invalid = true;
+            while (invalid)
+            {
+                playerInput = input.nextInt();
+
+                if (0 < playerInput || playerInput <= (int) (board.getPieces() / 2))
+                {
+                    invalid = false;
+                } else {
+                    System.out.println("Invalid input. Please enter a whole numebr from 1 to half the pile size");
+                }
+            }
+            //change pile
+            board.removePieces(playerInput);
+            //check for winners
+            if (board.getPieces() == 1)
+            {
+                activePlayer.changeScore(1);
+            }
             //switch players
             if (activePlayer.equals(player1))
             {
