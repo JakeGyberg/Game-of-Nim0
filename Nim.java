@@ -42,7 +42,7 @@ public class Nim {
             {
                 playerInput = input.nextInt();
 
-                if (0 < playerInput || playerInput <= (int) (board.getPieces() / 2))
+                if (0 < playerInput && playerInput <= (int) (board.getPieces() / 2))
                 {
                     invalid = false;
                 } else {
@@ -55,6 +55,25 @@ public class Nim {
             if (board.getPieces() == 1)
             {
                 activePlayer.changeScore(1);
+                playing = false;
+                System.out.println(activePlayer.getName() + " won that round. " + player1.getName() + " has " + player1.getScore() + " wins. " + player2.getName() + " has " + player2.getScore() + " wins. Play again? '1' = yes '2' = no");
+                invalid = true;
+                while (invalid)
+                {
+                    playerInput = input.nextInt();
+
+                    if (1 == playerInput || playerInput == 2)
+                    {
+                        invalid = false;
+                    } else {
+                        System.out.println("Invalid input. Please enter 1 to play again or 2 to quit.");
+                    }
+                }
+                if (playerInput == 1)
+                {
+                    play();
+                }
+
             }
             //switch players
             if (activePlayer.equals(player1))

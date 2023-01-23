@@ -10,7 +10,7 @@ public class Player {
         Scanner sc = new Scanner(System.in);
 
         name = sc.nextLine();;
-        System.out.println("Hello" + name);
+        System.out.println("Hello " + name);
 
         score = 0;
     }
