@@ -1,10 +1,15 @@
+/* 
+ * Jake Gyberg
+ * Game of Nim
+ * 1/22/23
+ */
+
 import java.util.Scanner;
 
 public class Nim {
     private Player player1;
     private Player player2;
     private Board board;
-    private boolean playAgain;
     private boolean playing;
     private Player activePlayer;
     private int playerInput;
@@ -14,7 +19,6 @@ public class Nim {
     {
         player1 = new Player();
         player2 = new Player();
-        playAgain = false;
     }
 
     public void play()

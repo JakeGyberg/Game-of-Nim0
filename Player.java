@@ -15,11 +15,6 @@ public class Player {
         score = 0;
     }
 
-    public int takeTurn()
-    {
-        return 1;
-    }
-
     public String getName()
     {
         return name;
